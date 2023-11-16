@@ -38,10 +38,12 @@ services:
       - /usr/src/app/node_modules
       
   rabbitmq:
-    image: rabbitmq
+    image: rabbitmq:3.9-management
     ports:
       - '5672:5672'
-
+      - '15672:15672'
+    env_file:
+      - .env
   mongodb-primary:
     image: docker.io/bitnami/mongodb:7.0
     environment:

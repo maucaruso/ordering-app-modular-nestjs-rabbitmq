@@ -13,7 +13,6 @@ export class BillingController {
 
   @EventPattern('order_created')
   async handleOrderCreated(@Payload() data: any, @Ctx() context: RmqContext) {
-    console.log('aaaaaaaaaaaaaaaaa');
     this.billingService.bill(data);
   }
 }
